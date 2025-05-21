@@ -1,9 +1,9 @@
 import React from 'react';
-import { EmployeeLayout } from '../../components/layout/EmployeeLayout';
+import EmployeeLayout from '../../components/layout/EmployeeLayout';
 
 const TrainingList = () => {
   return (
-    <EmployeeLayout>
+    <EmployeeLayout title="My Trainings">
       <div className="p-6">
         <h1 className="text-2xl font-bold text-gray-900 mb-6">My Trainings</h1>
         <div className="bg-white shadow rounded-lg">
