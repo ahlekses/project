@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { Building2, Plus, Edit2, Trash2 } from 'lucide-react';
+import { Building2, Plus, Edit2, Trash2, Users } from 'lucide-react';
 import AdminLayout from '../../components/layout/AdminLayout';
 import api from '../../services/api';
 
@@ -131,13 +131,13 @@ const DepartmentManagement: React.FC = () => {
                     </span>
                   </div>
 
-                  <p className="mt-2 text-sm text-gray-600">
+                  <p className="mt-2 text-sm text-gray-600 line-clamp-2">
                     {department.description || 'No description provided'}
                   </p>
 
                   <div className="mt-4 flex items-center text-sm text-gray-500">
                     <Users className="h-4 w-4 mr-1" />
-                    {department.employee_count} Employees
+                    <span>{department.employee_count} Employees</span>
                   </div>
 
                   <div className="mt-4 flex justify-end space-x-2">
@@ -171,7 +171,7 @@ const DepartmentManagement: React.FC = () => {
                 <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700">
-                      Department Name
+                      Department Name <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -179,6 +179,7 @@ const DepartmentManagement: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                      placeholder="Enter department name"
                     />
                   </div>
                   <div>
@@ -190,6 +191,7 @@ const DepartmentManagement: React.FC = () => {
                       onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                       rows={3}
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                      placeholder="Enter department description"
                     />
                   </div>
                   <div>
